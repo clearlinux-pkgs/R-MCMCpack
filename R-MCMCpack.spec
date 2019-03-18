@@ -4,31 +4,29 @@
 #
 Name     : R-MCMCpack
 Version  : 1.4.4
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/MCMCpack_1.4-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MCMCpack_1.4-4.tar.gz
 Summary  : Markov Chain Monte Carlo (MCMC) Package
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-MCMCpack-lib
-Requires: R-coda
-Requires: R-mcmc
-Requires: R-quantreg
+Requires: R-MCMCpack-lib = %{version}-%{release}
+Requires: R-MatrixModels
+Requires: R-SparseM
+BuildRequires : R-MatrixModels
+BuildRequires : R-SparseM
 BuildRequires : R-coda
 BuildRequires : R-mcmc
 BuildRequires : R-quantreg
 BuildRequires : buildreq-R
 
 %description
-inference using posterior simulation for a number of
-        statistical models. Most simulation is done in compiled C++
-        written in the Scythe Statistical Library Version 1.0.3. All
-        models return 'coda' mcmc objects that can then be summarized
-        using the 'coda' package. Some useful
-        utility functions such as density functions,
-	pseudo-random number generators for statistical
-        distributions, a general purpose Metropolis sampling algorithm,
-        and tools for visualization are provided.
+/////////////////////
+/////////////////////
+// Authors
+Andrew D. Martin <admart@umich.edu>
+Kevin M. Quinn <kmq@umich.edu>
+Jong Hee Park <jongheepark@snu.ac.kr>
 
 %package lib
 Summary: lib components for the R-MCMCpack package.
@@ -46,11 +44,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536934041
+export SOURCE_DATE_EPOCH=1552879616
 
 %install
+export SOURCE_DATE_EPOCH=1552879616
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1536934041
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -85,8 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library MCMCpack|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  MCMCpack || :
 
 
 %files
@@ -118,7 +115,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/MCMCpack/help/paths.rds
 /usr/lib64/R/library/MCMCpack/html/00Index.html
 /usr/lib64/R/library/MCMCpack/html/R.css
-/usr/lib64/R/library/MCMCpack/libs/symbols.rds
 
 %files lib
 %defattr(-,root,root,-)
