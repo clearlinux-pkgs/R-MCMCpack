@@ -4,15 +4,13 @@
 #
 Name     : R-MCMCpack
 Version  : 1.4.4
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/MCMCpack_1.4-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MCMCpack_1.4-4.tar.gz
 Summary  : Markov Chain Monte Carlo (MCMC) Package
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-MCMCpack-lib = %{version}-%{release}
-Requires: R-MatrixModels
-Requires: R-SparseM
 BuildRequires : R-MatrixModels
 BuildRequires : R-SparseM
 BuildRequires : R-coda
@@ -44,10 +42,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552879616
+export SOURCE_DATE_EPOCH=1552885221
 
 %install
-export SOURCE_DATE_EPOCH=1552879616
+export SOURCE_DATE_EPOCH=1552885221
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
