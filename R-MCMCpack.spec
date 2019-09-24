@@ -4,27 +4,31 @@
 #
 Name     : R-MCMCpack
 Version  : 1.4.4
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/MCMCpack_1.4-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MCMCpack_1.4-4.tar.gz
 Summary  : Markov Chain Monte Carlo (MCMC) Package
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-MCMCpack-lib = %{version}-%{release}
-BuildRequires : R-MatrixModels
-BuildRequires : R-SparseM
+Requires: R-coda
+Requires: R-mcmc
+Requires: R-quantreg
 BuildRequires : R-coda
 BuildRequires : R-mcmc
 BuildRequires : R-quantreg
 BuildRequires : buildreq-R
 
 %description
-/////////////////////
-/////////////////////
-// Authors
-Andrew D. Martin <admart@umich.edu>
-Kevin M. Quinn <kmq@umich.edu>
-Jong Hee Park <jongheepark@snu.ac.kr>
+inference using posterior simulation for a number of
+        statistical models. Most simulation is done in compiled C++
+        written in the Scythe Statistical Library Version 1.0.3. All
+        models return 'coda' mcmc objects that can then be summarized
+        using the 'coda' package. Some useful
+        utility functions such as density functions,
+	pseudo-random number generators for statistical
+        distributions, a general purpose Metropolis sampling algorithm,
+        and tools for visualization are provided.
 
 %package lib
 Summary: lib components for the R-MCMCpack package.
@@ -41,13 +45,13 @@ lib components for the R-MCMCpack package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552885221
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569363086
 
 %install
-export SOURCE_DATE_EPOCH=1552885221
+export SOURCE_DATE_EPOCH=1569363086
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -76,12 +80,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  MCMCpack || :
+R CMD check --no-manual --no-examples --no-codoc MCMCpack || :
 
 
 %files
