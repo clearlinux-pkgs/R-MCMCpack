@@ -4,7 +4,7 @@
 #
 Name     : R-MCMCpack
 Version  : 1.4.4
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/MCMCpack_1.4-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MCMCpack_1.4-4.tar.gz
 Summary  : Markov Chain Monte Carlo (MCMC) Package
@@ -18,17 +18,15 @@ BuildRequires : R-coda
 BuildRequires : R-mcmc
 BuildRequires : R-quantreg
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-inference using posterior simulation for a number of
-        statistical models. Most simulation is done in compiled C++
-        written in the Scythe Statistical Library Version 1.0.3. All
-        models return 'coda' mcmc objects that can then be summarized
-        using the 'coda' package. Some useful
-        utility functions such as density functions,
-	pseudo-random number generators for statistical
-        distributions, a general purpose Metropolis sampling algorithm,
-        and tools for visualization are provided.
+/////////////////////
+/////////////////////
+// Authors
+Andrew D. Martin <admart@umich.edu>
+Kevin M. Quinn <kmq@umich.edu>
+Jong Hee Park <jongheepark@snu.ac.kr>
 
 %package lib
 Summary: lib components for the R-MCMCpack package.
@@ -46,10 +44,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569363086
+export SOURCE_DATE_EPOCH=1571864224
 
 %install
-export SOURCE_DATE_EPOCH=1569363086
+export SOURCE_DATE_EPOCH=1571864224
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
