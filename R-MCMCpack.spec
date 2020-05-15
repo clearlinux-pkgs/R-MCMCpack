@@ -4,7 +4,7 @@
 #
 Name     : R-MCMCpack
 Version  : 1.4.7
-Release  : 29
+Release  : 30
 URL      : https://cran.r-project.org/src/contrib/MCMCpack_1.4-7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MCMCpack_1.4-7.tar.gz
 Summary  : Markov Chain Monte Carlo (MCMC) Package
@@ -47,10 +47,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589221170
+export SOURCE_DATE_EPOCH=1589573696
 
 %install
-export SOURCE_DATE_EPOCH=1589221170
+export SOURCE_DATE_EPOCH=1589573696
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
