@@ -4,7 +4,7 @@
 #
 Name     : R-MCMCpack
 Version  : 1.5.0
-Release  : 41
+Release  : 42
 URL      : https://cran.r-project.org/src/contrib/MCMCpack_1.5-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MCMCpack_1.5-0.tar.gz
 Summary  : Markov Chain Monte Carlo (MCMC) Package
